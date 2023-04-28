@@ -83,7 +83,7 @@ PinOutPanel.RotationAngle=0
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 ProjectManager.ProjectFileName=NUCLEO-STM32G431RB-MC.ioc
 ProjectManager.ProjectName=NUCLEO-STM32G431RB-MC
-ProjectManager.TargetToolchain=MDK-ARM V5
+ProjectManager.TargetToolchain=STM32CubeIDE
 ProjectManager.AskForMigrate=true
 ProjectManager.BackupPrevious=false
 ProjectManager.ComputerToolchain=false
