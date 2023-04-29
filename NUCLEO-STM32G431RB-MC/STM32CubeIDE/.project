@@ -36,9 +36,29 @@
 			<locationURI>PARENT-1-PROJECT_LOC/NUCLEO-STM32G431RB-MC.ioc</locationURI>
 		</link>
 		<link>
+			<name>Application/User/adc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Src/adc.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/aspep.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Src/aspep.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/cordic.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Src/cordic.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/dma.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Src/dma.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gpio.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Src/gpio.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/main.c</name>
@@ -129,6 +149,16 @@
 			<name>Application/User/stm32g4xx_mc_it.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Src/stm32g4xx_mc_it.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/tim.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Src/tim.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/usart.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Src/usart.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/usart_aspep_driver.c</name>
