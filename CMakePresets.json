@@ -1,0 +1,78 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 22,
+        "patch": 0
+    },
+    "configurePresets": [
+    {
+        "name": "Blinky_AC6_Demo",
+        "displayName": "Blinky_AC6_Demo",
+        "description": "Blinky NUCLEO STM32G431RB board demo with AC6",
+        "generator": "Ninja",
+        "environment": {
+            "CORTEX_TYPE": "cm4f"
+        },
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+            "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
+            "DEMO": true,
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/armclang-community.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
+        }
+    },
+    {
+        "name": "Blinky_GCC_Demo",
+        "displayName": "Blinky_GCC_Demo",
+        "description": "Blinky NUCLEO STM32G431RB board demo with arm gcc",
+        "generator": "Ninja",
+        "environment": {
+            "CORTEX_TYPE": "cm4f"
+        },
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+            "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
+            "DEMO": true,
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/arm-none-eabi-gcc.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
+        }
+    },
+    {
+        "name": "Blinky_llvm_Demo",
+        "displayName": "Blinky_llvm_Demo",
+        "description": "Blinky NUCLEO STM32G431RB board demo with llvm clang",
+        "generator": "Ninja",
+        "environment": {
+            "CORTEX_TYPE": "cm4f"
+        },
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+            "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
+            "DEMO": true,
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
+        }
+    }
+    ],
+    "buildPresets": [
+        {
+            "name": "Blinky_AC6_Demo",
+            "configurePreset": "Blinky_AC6_Demo"
+        },
+        {
+            "name": "Blinky_GCC_Demo",
+            "configurePreset": "Blinky_GCC_Demo"
+        },
+        {
+            "name": "Blinky_llvm_Demo",
+            "configurePreset": "Blinky_llvm_Demo"
+        }
+    ]
+}

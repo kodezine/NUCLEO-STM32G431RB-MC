@@ -1,3 +1,46 @@
+# VS Code Editor
+.settings
+.vscode
+
+#Ignore Eclipse based project manager
+.cproject
+.project
+.user
+*.user
+.metadata
+
+
+# Cmake stuff
+[bB]uild
+CMakeUserPresets.json
+**/_deps
+**/CMakeCache.txt
+**/CMakeFiles
+**/.cmake
+**/.ninja*
+**/build.ninja
+**/*.bin
+**/*.elf
+**/*.hex
+**/*.lst
+**/*.map
+**/*.a
+
+# misc
+.DS_Store
+
+# Devcontainer user configuration
+.devcontainer/devcontainer.json
+
+# Ozone debug configuration
+*.jdebug
+
+# Keil uVision
+*.uvguix.*
+MDK-ARM/DebugConfig/*.dbgconf
+!MDK-ARM/STM32F0308-DISCO/STM32F0308-DISCO.sct
+
+# other CMake ignores
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -9,5 +52,7 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+# Eclipse based project builds
 [dD]ebug
 [rR]elease
