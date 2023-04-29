@@ -21,6 +21,7 @@
 #include "adc.h"
 #include "cordic.h"
 #include "dma.h"
+#include "fdcan.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -99,6 +100,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_MotorControl_Init();
   MX_TIM7_Init();
+  MX_FDCAN1_Init();
 
   /* Initialize interrupts */
   MX_NVIC_Init();
