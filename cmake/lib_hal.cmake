@@ -11,11 +11,11 @@ add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::framework ALIAS ${PROJECT_NAME})
 
 include(cmake/lib_cmsis.cmake)
-set(cmsis_DEVICE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/Device/ARM/ARMCM0/Include" CACHE STRING "Path to ARM0 from standard CMSIS")
+set(cmsis_DEVICE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/Device/ARM/ARMCM4/Include" CACHE STRING "Path to ARM CM4 from standard CMSIS")
 set(cmsis_CORE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/CMSIS/Core/Include" CACHE STRING "Path to CMSIS core includes")
 
-set(hal_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Inc")
-set(hal_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Src")
+set(hal_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Inc")
+set(hal_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Src")
 set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/main.c
     ${hal_core_SOURCE_DIR}/stm32g4xx_hal_msp.c
@@ -27,11 +27,11 @@ set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/usart.c
 )
 
-set(hal_drivers_CMSIS_device_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/CMSIS/Device/ST/STM32G4xx/Include")
+set(hal_drivers_CMSIS_device_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/CMSIS/Device/ST/STM32G4xx/Include")
 set(hal_drivers_CMSIS_INCLUDE_DIR "${cmake_SOURCE_DIR}/CMSIS/Core/Include")
-set(hal_drivers_legacy_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy")
-set(hal_drivers_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/STM32G4xx_HAL_Driver/Inc")
-set(hal_drivers_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/STM32G4xx_HAL_Driver/Src")
+set(hal_drivers_legacy_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy")
+set(hal_drivers_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/STM32G4xx_HAL_Driver/Inc")
+set(hal_drivers_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/STM32G4xx_HAL_Driver/Src")
 set(hal_drivers_SOURCES
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_cortex.c
@@ -77,6 +77,7 @@ target_compile_definitions(${PROJECT_NAME}
         STM32G431xx
         __UVISION_VERSION="537"
         _RTE_
+        ARM_MATH_CM4
 )
 
 set(${PROJECT_NAME}_PUBLIC_HEADERS
@@ -139,9 +140,9 @@ write_basic_package_version_file(${PROJECT_NAME}ConfigVersion.cmake
 
 setTargetCompileOptions(PROJECT_NAME)
 
-#target_link_libraries(${PROJECT_NAME}
-#    cmsis
-#)
+target_link_libraries(${PROJECT_NAME}
+    cmsis
+)
 
 # CPACK begins here
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
