@@ -9,7 +9,8 @@ cmake_minimum_required(VERSION 3.25)
     if(CMAKE_C_COMPILER_ID STREQUAL "ARMClang")
         set(${PROJECT_NAME}_STARTUP_FILE ${CMAKE_CURRENT_SOURCE_DIR}/__startup/__vectors.c CACHE STRING "ARMClang based startup script for ${PROJECT_NAME}")
     else()
-        set(${PROJECT_NAME}_STARTUP_FILE ${CMAKE_CURRENT_SOURCE_DIR}/__startup/__vectors.c CACHE STRING "ARMClang based startup script for ${PROJECT_NAME}")
+        #set(${PROJECT_NAME}_STARTUP_FILE ${CMAKE_CURRENT_SOURCE_DIR}/__startup/__vectors.c CACHE STRING "ARMClang based startup script for ${PROJECT_NAME}")
+        set(${PROJECT_NAME}_STARTUP_FILE ${CMAKE_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/STM32CubeIDE/Application/Startup/startup_stm32g431rbtx.s )#${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/STM32CubeIDE/Application/Startup/startup_stm32g431rbtx.s CACHE STRING "ARMClang based startup script for ${PROJECT_NAME}")
     endif()
 
     add_executable(${PROJECT_NAME})
@@ -17,7 +18,6 @@ cmake_minimum_required(VERSION 3.25)
     target_sources(${PROJECT_NAME}
         PRIVATE
             ${CMAKE_CURRENT_SOURCE_DIR}/demo.c
-            #${CMAKE_SOURCE_DIR}/cubemx/Core/Src/stm32g4xx_it.c
             ${hal_core_SOURCE_DIR}/stm32g4xx_it.c
             ${hal_core_SOURCE_DIR}/stm32g4xx_mc_it.c
         # Expose the startup file
@@ -38,8 +38,8 @@ cmake_minimum_required(VERSION 3.25)
     endif()
 
     # Always set the linker script path and file separately
-    set(${PROJECT_NAME}_LINKER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/__linker" CACHE STRING "Path to armgcc linker script")
-    set(${PROJECT_NAME}_LINKER_SCRIPT "gcc_arm.ld" CACHE STRING "armgcc based linker script for ${PROJECT_NAME}")
+    set(${PROJECT_NAME}_LINKER_PATH "/Users/sohal/GitHub/NUCLEO-STM32G431RB-MC//NUCLEO-STM32G431RB-MC/STM32CubeIDE" CACHE STRING "Path to armgcc linker script")
+    set(${PROJECT_NAME}_LINKER_SCRIPT "STM32G431RBTX_FLASH.ld" CACHE STRING "armgcc based linker script for ${PROJECT_NAME}")
     set(${PROJECT_NAME}_SCATTER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/__linker" CACHE STRING "Path to ARMClang linker script")
     set(${PROJECT_NAME}_SCATTER_FILE "ac6_arm.sct" CACHE STRING "ARMClang based linker script for ${PROJECT_NAME}")
     set(${PROJECT_NAME}_LLVM_LINKER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/__linker" CACHE STRING "Path to llvm linker script")
