@@ -56,3 +56,4 @@ _deps
 # Eclipse based project builds
 [dD]ebug
 [rR]elease
+**/*.launch
