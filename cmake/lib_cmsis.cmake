@@ -17,16 +17,8 @@ FetchContent_GetProperties(cmsis)
 if(NOT cmsis_POPULATED)
     FetchContent_Populate(cmsis)
     add_library(cmsis INTERFACE)
-    target_link_libraries(cmsis
-        INTERFACE
-            CMSISDSP
-    )
+
     # This is just a header based interface used in various upstream libraries including HAL
-    add_library(cmsis-core INTERFACE)
-    target_include_directories(cmsis-core
-        INTERFACE
-        ${cmsis_SOURCE_DIR}/CMSIS/Core/Include
-    )
 endif()
 
 

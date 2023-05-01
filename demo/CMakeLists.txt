@@ -17,19 +17,20 @@ cmake_minimum_required(VERSION 3.25)
     target_sources(${PROJECT_NAME}
         PRIVATE
             ${CMAKE_CURRENT_SOURCE_DIR}/demo.c
-            ${CMAKE_SOURCE_DIR}/cubemx/Core/Src/stm32g4xx_it.c
+            #${CMAKE_SOURCE_DIR}/cubemx/Core/Src/stm32g4xx_it.c
+            ${hal_core_SOURCE_DIR}/stm32g4xx_it.c
+            ${hal_core_SOURCE_DIR}/stm32g4xx_mc_it.c
         # Expose the startup file
         PUBLIC
             ${${PROJECT_NAME}_STARTUP_FILE}
     )
 
     target_include_directories(${PROJECT_NAME}
-
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}
-    # Expose the linker files
-    PUBLIC
-        ${cmsis_SOURCE_DIR}/CMSIS/Core/Include
+        PRIVATE
+            ${CMAKE_CURRENT_SOURCE_DIR}
+        # Expose the linker files
+        PUBLIC
+            ${cmsis_SOURCE_DIR}/CMSIS/Core/Include
     )
 
     if(NOT CMAKE_EXECUTABLE_SUFFIX)
@@ -48,6 +49,7 @@ cmake_minimum_required(VERSION 3.25)
     setTargetLinkOptions(PROJECT_NAME)
     target_link_libraries(${PROJECT_NAME}
         hal
+        cmsis
     )
-    #convertELF_BIN_HEX(${PROJECT_NAME})
-    #include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/flasher.cmake)
+
+convertELF_BIN_HEX(${PROJECT_NAME})
