@@ -92,7 +92,8 @@ ProjectManager.CompilerOptimize=5
 ProjectManager.LibraryCopy=0
 ProjectManager.iocOrigin=MotorControl
 
-ProjectManager.LastFirmware=true
+ProjectManager.LastFirmware=false
+ProjectManager.FirmwarePackage=STM32Cube FW_G4 V1.5.1
 
 ProjectManager.DefaultFWLocation=true
 ProjectManager.DeletePrevious=true

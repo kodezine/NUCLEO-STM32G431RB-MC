@@ -41,6 +41,16 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Src/aspep.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/demo.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/demo/demo.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/demo.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/demo/demo.h</locationURI>
+		</link>
+		<link>
 			<name>Application/User/main.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Src/main.c</locationURI>
@@ -179,6 +189,11 @@
 			<name>Drivers/STM32G4xx_HAL_Driver/stm32g4xx_hal_exti.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32G4xx_HAL_Driver/stm32g4xx_hal_fdcan.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/STM32G4xx_HAL_Driver/stm32g4xx_hal_flash.c</name>
