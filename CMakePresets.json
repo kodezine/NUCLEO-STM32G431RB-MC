@@ -30,7 +30,8 @@
         "description": "Blinky NUCLEO STM32G431RB board demo with arm gcc",
         "generator": "Ninja",
         "environment": {
-            "CORTEX_TYPE": "cm4f"
+            "CORTEX_TYPE": "cm4f",
+            "ARM_GCC_ROOT_FOLDER": "/Applications/ARM"
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {

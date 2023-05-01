@@ -105,6 +105,8 @@ target_sources(${PROJECT_NAME}
     # MCSDK Sources
     ${mcsdk_Any_SOURCES}
     ${mcsdk_G4xx_SOURCES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/STM32CubeIDE/Application/User/syscalls.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/STM32CubeIDE/Application/User/sysmem.c
 )
 
 target_include_directories(${PROJECT_NAME}
