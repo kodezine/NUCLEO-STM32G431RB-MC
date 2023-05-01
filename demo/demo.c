@@ -19,11 +19,11 @@ void Timer6UpdateCallback(void)
 
 __NO_RETURN void app_main(void)
 {
-    HAL_TIM_Base_Start_IT(&htim6);
+    //HAL_TIM_Base_Start_IT(&htim6);
     HAL_SetTickFreq(HAL_TICK_FREQ_1KHZ);
     do
     {
-        HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); /* Toggle pin after some delay */
+        //HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); /* Toggle pin after some delay */
         HAL_Delay(20);                              /* busy wait delay */
     } while (true);
 }

@@ -9,7 +9,7 @@
         //#include "__vectors_gcc.h"
     #endif
 #endif
-#include "system_ARMCM0.h"
+#include "system_ARMCM4.h"
 #include "cmsis_compiler.h"
 
 /******************************************************************************

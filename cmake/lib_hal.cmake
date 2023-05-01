@@ -23,6 +23,7 @@ set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/aspep.c
     ${hal_core_SOURCE_DIR}/cordic.c
     ${hal_core_SOURCE_DIR}/dma.c
+    ${hal_core_SOURCE_DIR}/fdcan.c
     ${hal_core_SOURCE_DIR}/gpio.c
     ${hal_core_SOURCE_DIR}/main.c
     ${hal_core_SOURCE_DIR}/mc_api.c
@@ -40,8 +41,11 @@ set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/register_interface.c
     ${hal_core_SOURCE_DIR}/regular_conversion_manager.c
     ${hal_core_SOURCE_DIR}/stm32g4xx_hal_msp.c
-#    stm32g4xx_it.c
-#    stm32g4xx_mc_it.c
+    ${hal_core_SOURCE_DIR}/system_stm32g4xx.c
+    ${hal_core_SOURCE_DIR}/tim.c
+    ${hal_core_SOURCE_DIR}/usart_aspep_driver.c
+    ${hal_core_SOURCE_DIR}/usart.c
+
 )
 
 set(hal_drivers_CMSIS_device_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/CMSIS/Device/ST/STM32G4xx/Include")
@@ -58,6 +62,7 @@ set(hal_drivers_SOURCES
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_dma.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_dma_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_exti.c
+    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_fdcan.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash_ramfunc.c
