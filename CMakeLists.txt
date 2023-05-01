@@ -33,6 +33,6 @@ project(hal
 
 include(cmake/lib_hal.cmake)
 if(DEMO)
-    add_subdirectory(demo)
+#    add_subdirectory(demo)
 endif()
 
