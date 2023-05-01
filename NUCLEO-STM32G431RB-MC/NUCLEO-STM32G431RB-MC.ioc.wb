@@ -67,8 +67,8 @@
 # CubeMX versions                                                                                                      #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 File.Version=6
-MxCube.Version=6.8.0
-MxDb.Version=DB.6.0.80
+MxCube.Version=6.8.1
+MxDb.Version=DB.6.0.81
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -92,8 +92,7 @@ ProjectManager.CompilerOptimize=5
 ProjectManager.LibraryCopy=0
 ProjectManager.iocOrigin=MotorControl
 
-ProjectManager.LastFirmware=false
-ProjectManager.FirmwarePackage=STM32Cube FW_G4 V1.5.1
+ProjectManager.LastFirmware=true
 
 ProjectManager.DefaultFWLocation=true
 ProjectManager.DeletePrevious=true
@@ -1040,7 +1039,7 @@ MotorControl.CONSTANT1_Q=1916
 MotorControl.CONSTANT2_QD=1812
 MotorControl.CPU_CLK_170_MHZ=true
 MotorControl.CTLBOARD_NAME=NUCLEO-G431RB
-MotorControl.CUBE_MX_VER=6.8.0
+MotorControl.CUBE_MX_VER=6.8.1
 MotorControl.CURR_SAMPLING_TIME=6
 MotorControl.CURRENT_READING_TOPOLOGY=THREE_SHUNT_INDEPENDENT_RESOURCES
 MotorControl.DAC_FUNCTIONALITY=false
