@@ -17,14 +17,31 @@ set(cmsis_CORE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/CMSIS/Core/Include" CACHE STRING
 set(hal_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Inc")
 set(hal_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Src")
 set(hal_core_SOURCES
-    ${hal_core_SOURCE_DIR}/main.c
-    ${hal_core_SOURCE_DIR}/stm32g4xx_hal_msp.c
+
     ${hal_core_SOURCE_DIR}/system_stm32g4xx.c
-    ${hal_core_SOURCE_DIR}/stm32g4xx_hal_timebase_tim.c
-    ${hal_core_SOURCE_DIR}/fdcan.c
+    ${hal_core_SOURCE_DIR}/adc.c
+    ${hal_core_SOURCE_DIR}/aspep.c
+    ${hal_core_SOURCE_DIR}/cordic.c
+    ${hal_core_SOURCE_DIR}/dma.c
     ${hal_core_SOURCE_DIR}/gpio.c
-    ${hal_core_SOURCE_DIR}/tim.c
-    ${hal_core_SOURCE_DIR}/usart.c
+    ${hal_core_SOURCE_DIR}/main.c
+    ${hal_core_SOURCE_DIR}/mc_api.c
+    ${hal_core_SOURCE_DIR}/mc_app_hooks.c
+    ${hal_core_SOURCE_DIR}/mc_config.c
+    ${hal_core_SOURCE_DIR}/mc_configuration_registers.c
+    ${hal_core_SOURCE_DIR}/mc_interface.c
+    ${hal_core_SOURCE_DIR}/mc_math.c
+    ${hal_core_SOURCE_DIR}/mc_parameters.c
+    ${hal_core_SOURCE_DIR}/mc_perf.c
+    ${hal_core_SOURCE_DIR}/mc_tasks.c
+    ${hal_core_SOURCE_DIR}/mcp_config.c
+    ${hal_core_SOURCE_DIR}/motorcontrol.c
+    ${hal_core_SOURCE_DIR}/pwm_curr_fdbk.c
+    ${hal_core_SOURCE_DIR}/register_interface.c
+    ${hal_core_SOURCE_DIR}/regular_conversion_manager.c
+    ${hal_core_SOURCE_DIR}/stm32g4xx_hal_msp.c
+#    stm32g4xx_it.c
+#    stm32g4xx_mc_it.c
 )
 
 set(hal_drivers_CMSIS_device_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/CMSIS/Device/ST/STM32G4xx/Include")
@@ -34,14 +51,16 @@ set(hal_drivers_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/D
 set(hal_drivers_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/Drivers/STM32G4xx_HAL_Driver/Src")
 set(hal_drivers_SOURCES
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal.c
+    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_adc.c
+    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_adc_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_cordic.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_cortex.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_dma.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_dma_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_exti.c
-    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_fdcan.c
+    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash_ramfunc.c
-    ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_flash.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_gpio.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_pwr.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_pwr_ex.c
@@ -51,12 +70,45 @@ set(hal_drivers_SOURCES
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_tim_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_uart.c
     ${hal_drivers_SOURCE_DIR}/stm32g4xx_hal_uart_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32g4xx_ll_adc.c
 )
+
+set(mcsdk_Any_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Inc")
+set(mcsdk_Any_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Src")
+set(mcsdk_Any_SOURCES
+    ${mcsdk_Any_SOURCE_DIR}/bus_voltage_sensor.c
+    ${mcsdk_Any_SOURCE_DIR}/circle_limitation.c
+    ${mcsdk_Any_SOURCE_DIR}/digital_output.c
+    ${mcsdk_Any_SOURCE_DIR}/mcp.c
+    ${mcsdk_Any_SOURCE_DIR}/mcpa.c
+    ${mcsdk_Any_SOURCE_DIR}/ntc_temperature_sensor.c
+    ${mcsdk_Any_SOURCE_DIR}/open_loop.c
+    ${mcsdk_Any_SOURCE_DIR}/pid_regulator.c
+    ${mcsdk_Any_SOURCE_DIR}/pqd_motor_power_measurement.c
+    ${mcsdk_Any_SOURCE_DIR}/pwm_common.c
+    ${mcsdk_Any_SOURCE_DIR}/r_divider_bus_voltage_sensor.c
+    ${mcsdk_Any_SOURCE_DIR}/ramp_ext_mngr.c
+    ${mcsdk_Any_SOURCE_DIR}/revup_ctrl.c
+    ${mcsdk_Any_SOURCE_DIR}/speed_pos_fdbk.c
+    ${mcsdk_Any_SOURCE_DIR}/speed_torq_ctrl.c
+    ${mcsdk_Any_SOURCE_DIR}/sto_pll_speed_pos_fdbk.c
+    ${mcsdk_Any_SOURCE_DIR}/virtual_speed_sensor.c
+)
+
+set(mcsdk_G4xx_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/G4xx/Inc")
+set(mcsdk_G4xx_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/NUCLEO-STM32G431RB-MC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/G4xx/Src")
+set(mcsdk_G4xx_SOURCES
+    ${mcsdk_G4xx_SOURCE_DIR}/r3_2_g4xx_pwm_curr_fdbk.c
+)
+
 
 target_sources(${PROJECT_NAME}
     PRIVATE
     ${hal_core_SOURCES}
     ${hal_drivers_SOURCES}
+    # MCSDK Sources
+    ${mcsdk_Any_SOURCES}
+    ${mcsdk_G4xx_SOURCES}
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -68,6 +120,8 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${hal_drivers_INCLUDE_DIR}>
         $<BUILD_INTERFACE:${hal_core_INCLUDES_DIR}>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+        $<BUILD_INTERFACE:${mcsdk_Any_INCLUDE_DIR}>
+        $<BUILD_INTERFACE:${mcsdk_G4xx_INCLUDE_DIR}>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}>
 )
 
