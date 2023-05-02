@@ -28,9 +28,6 @@ cmake_minimum_required(VERSION 3.25)
     target_include_directories(${PROJECT_NAME}
         PRIVATE
             ${CMAKE_CURRENT_SOURCE_DIR}
-        # Expose the linker files
-        PUBLIC
-            ${cmsis_SOURCE_DIR}/CMSIS/Core/Include
     )
 
     if(NOT CMAKE_EXECUTABLE_SUFFIX)
@@ -49,7 +46,6 @@ cmake_minimum_required(VERSION 3.25)
     setTargetLinkOptions(PROJECT_NAME)
     target_link_libraries(${PROJECT_NAME}
         hal
-        cmsis
     )
 
 convertELF_BIN_HEX(${PROJECT_NAME})

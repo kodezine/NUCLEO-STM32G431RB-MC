@@ -81,11 +81,13 @@ set(mcsdk_Any_SOURCES
     ${mcsdk_Any_SOURCE_DIR}/open_loop.c
     ${mcsdk_Any_SOURCE_DIR}/pid_regulator.c
     ${mcsdk_Any_SOURCE_DIR}/pqd_motor_power_measurement.c
+    ${mcsdk_Any_SOURCE_DIR}/potentiometer.c
     ${mcsdk_Any_SOURCE_DIR}/pwm_common.c
     ${mcsdk_Any_SOURCE_DIR}/r_divider_bus_voltage_sensor.c
     ${mcsdk_Any_SOURCE_DIR}/ramp_ext_mngr.c
     ${mcsdk_Any_SOURCE_DIR}/revup_ctrl.c
     ${mcsdk_Any_SOURCE_DIR}/speed_pos_fdbk.c
+    ${mcsdk_Any_SOURCE_DIR}/speed_potentiometer.c
     ${mcsdk_Any_SOURCE_DIR}/speed_torq_ctrl.c
     ${mcsdk_Any_SOURCE_DIR}/sto_pll_speed_pos_fdbk.c
     ${mcsdk_Any_SOURCE_DIR}/virtual_speed_sensor.c
@@ -191,10 +193,6 @@ write_basic_package_version_file(${PROJECT_NAME}ConfigVersion.cmake
 )
 
 setTargetCompileOptions(PROJECT_NAME)
-
-target_link_libraries(${PROJECT_NAME}
-    cmsis
-)
 
 # CPACK begins here
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
