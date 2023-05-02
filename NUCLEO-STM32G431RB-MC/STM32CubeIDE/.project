@@ -36,6 +36,21 @@
 			<locationURI>PARENT-1-PROJECT_LOC/NUCLEO-STM32G431RB-MC.ioc</locationURI>
 		</link>
 		<link>
+			<name>Application/CMakeLists.txt</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/demo/CMakeLists.txt</locationURI>
+		</link>
+		<link>
+			<name>Application/demo.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/demo/demo.c</locationURI>
+		</link>
+		<link>
+			<name>Application/demo.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/demo/demo.h</locationURI>
+		</link>
+		<link>
 			<name>Application/User/aspep.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Src/aspep.c</locationURI>
