@@ -42,17 +42,17 @@
                                                             variance on speed
                                                             estimates (percentage) */
 /* State observer scaling factors F1 */
-#define F1                               512
+#define F1                               1024
 #define F2                               16384
-#define F1_LOG                           LOG2((512))
+#define F1_LOG                           LOG2((1024))
 #define F2_LOG                           LOG2((16384))
 
 /* State observer constants */
-#define GAIN1                            -651
-#define GAIN2                            1994
+#define GAIN1                            -1380
+#define GAIN2                            2898
 /*Only in case PLL is used, PLL gains */
-#define PLL_KP_GAIN                      2793
-#define PLL_KI_GAIN                      99
+#define PLL_KP_GAIN                      1862
+#define PLL_KI_GAIN                      44
 #define PLL_KPDIV     16384
 #define PLL_KPDIV_LOG LOG2((PLL_KPDIV))
 #define PLL_KIDIV     65535
@@ -79,7 +79,7 @@
 /**************************    DRIVE SETTINGS SECTION   **********************/
 /* PWM generation and current reading */
 
-#define PWM_FREQUENCY   20000
+#define PWM_FREQUENCY   30000
 #define PWM_FREQ_SCALING 1
 
 #define LOW_SIDE_SIGNALS_ENABLING        ES_GPIO
@@ -89,10 +89,10 @@
                                                            number of PWM cycles */
 /* Gains values for torque and flux control loops */
 #define PID_TORQUE_KP_DEFAULT         965
-#define PID_TORQUE_KI_DEFAULT         295
+#define PID_TORQUE_KI_DEFAULT         197
 #define PID_TORQUE_KD_DEFAULT         100
 #define PID_FLUX_KP_DEFAULT           965
-#define PID_FLUX_KI_DEFAULT           295
+#define PID_FLUX_KI_DEFAULT           197
 #define PID_FLUX_KD_DEFAULT           100
 
 /* Torque/Flux control loop gains dividers*/
@@ -214,6 +214,61 @@
 #define ADC_SAMPLING_CYCLES (6 + SAMPLING_CYCLE_CORRECTION)
 
 /******************************   ADDITIONAL FEATURES   **********************/
+
+/* **** Potentiometer parameters **** */
+
+/** @brief Sampling time set to the ADC channel used by the potentiometer component */
+#define POTENTIOMETER_ADC_SAMPLING_TIME_M1  LL_ADC_SAMPLING_CYCLE(47)
+
+/**
+ * @brief Speed reference set to Motor 1 when the potentiometer is at its maximum
+ *
+ * This value is expressed in #SPEED_UNIT.
+ *
+ * Default value is #MAX_APPLICATION_SPEED_UNIT.
+ *
+ * @sa POTENTIOMETER_MIN_SPEED_M1
+ */
+#define POTENTIOMETER_MAX_SPEED_M1 MAX_APPLICATION_SPEED_UNIT
+
+/**
+ * @brief Speed reference set to Motor 1 when the potentiometer is at its minimum
+ *
+ * This value is expressed in #SPEED_UNIT.
+ *
+ * Default value is 10 % of #MAX_APPLICATION_SPEED_UNIT.
+ *
+ * @sa POTENTIOMETER_MAX_SPEED_M1
+ */
+#define POTENTIOMETER_MIN_SPEED_M1 ((MAX_APPLICATION_SPEED_UNIT)/10)
+
+/**
+ * @brief Potentiometer change threshold to trigger speed reference update for Motor 1
+ *
+ * When the potentiometer value differs from the current speed reference by more than this
+ * threshold, the speed reference set to the motor is adjusted to match the potentiometer value.
+ *
+ * The threshold is expressed in u16digits. Its default value is set to 13% of the potentiometer
+ * aquisition range
+ *
+ */
+ #define POTENTIOMETER_SPEED_ADJUSTMENT_RANGE_M1 (655)
+
+/**
+ * @brief Acceleration used to compute ramp duration when setting speed reference to Motor 1
+ *
+ * This acceleration is expressed in #SPEED_UNIT/s. Its default value is 100 Hz/s (provided
+ * that #SPEED_UNIT is #U_01HZ).
+ *
+ */
+ #define POTENTIOMETER_RAMP_SLOPE_M1 1000
+
+/**
+ * @brief Bandwith of the low pass filter applied on the potentiometer values
+ *
+ * @see SpeedPotentiometer_Handle_t::LPFilterBandwidthPOW2
+ */
+#define POTENTIOMETER_LPF_BANDWIDTH_POW2_M1 4
 
 /*** On the fly start-up ***/
 

@@ -27,6 +27,7 @@
 #include "mc_tasks.h"
 //cstat +MISRAC2012-Rule-3.1
 #include "motorcontrol.h"
+#include "stm32g4xx_ll_exti.h"
 #include "stm32g4xx_hal.h"
 #include "stm32g4xx.h"
 #include "mcp_config.h"
@@ -64,6 +65,7 @@ void TIMx_BRK_M1_IRQHandler(void);
 
 void HardFault_Handler(void);
 void SysTick_Handler(void);
+void EXTI15_10_IRQHandler (void);
 
 #if defined (CCMRAM)
 #if defined (__ICCARM__)
@@ -299,6 +301,24 @@ static uint8_t SystickDividerCounter = SYSTICK_DIVIDER;
 
   /* USER CODE BEGIN SysTick_IRQn 2 */
   /* USER CODE END SysTick_IRQn 2 */
+}
+
+/**
+  * @brief  This function handles Button IRQ on PIN PC13.
+  */
+void EXTI15_10_IRQHandler (void)
+{
+	/* USER CODE BEGIN START_STOP_BTN */
+  if (  0U == LL_EXTI_ReadFlag_0_31(LL_EXTI_LINE_13) )
+  {
+    /* Nothing to do */
+  }
+  else
+  {
+    LL_EXTI_ClearFlag_0_31 (LL_EXTI_LINE_13);
+    ( void )UI_HandleStartStopButton_cb ();
+  }
+
 }
 
 /* USER CODE BEGIN 1 */

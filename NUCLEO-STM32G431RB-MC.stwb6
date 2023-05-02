@@ -1097,8 +1097,7 @@
             "acceleration": 1000,
             "max_speed_startup": 3333
           }
-        },
-        "status": "success"
+        }
       }
     ],
     "connections": [
@@ -1654,7 +1653,7 @@
     "steps": {
       "powerSwitches_0": {
         "setting": {
-          "PWMFrequency": 20000,
+          "PWMFrequency": 30000,
           "chargeBootCapDuty": "Number.NaN",
           "chargeBootCapMs": "Number.NaN",
           "drivingTopology": ""
@@ -1666,7 +1665,10 @@
       },
       "userInterface": {
         "startStop": {
-          "enabled": false
+          "enabled": true,
+          "triggerEdge": "",
+          "pullMode": "",
+          "pin": ""
         },
         "mcpv2": {
           "bufferSize": "Number.NaN",
@@ -1701,6 +1703,20 @@
           "enabled": false
         },
         "dacDebug": {
+          "enabled": false
+        }
+      },
+      "stageConfig_0": {
+        "debugSettings": {
+          "openLoop": {
+            "enabled": false
+          }
+        },
+        "potentiometer": {
+          "enable": true,
+          "samplingTime": "Number.NaN"
+        },
+        "esc": {
           "enabled": false
         }
       }

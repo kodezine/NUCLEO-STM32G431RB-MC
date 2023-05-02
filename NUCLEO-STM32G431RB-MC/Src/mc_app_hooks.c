@@ -22,6 +22,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "mc_type.h"
 #include "mc_app_hooks.h"
+#include "mc_config.h"
+#include "speed_potentiometer.h"
 
 /** @addtogroup MCSDK
   * @{
@@ -47,11 +49,7 @@
  */
 __weak void MC_APP_BootHook(void)
 {
-  /*
-   * This function can be overloaded or the application can inject
-   * code into it that will be executed at the end of MCboot().
-   */
-
+  SPDPOT_Init( & SpeedPotentiometer_M1 );
 /* USER CODE BEGIN BootHook */
 
 /* USER CODE END BootHook */
@@ -65,12 +63,7 @@ __weak void MC_APP_BootHook(void)
  */
 __weak void MC_APP_PostMediumFrequencyHook_M1(void)
 {
-  /*
-   * This function can be overloaded or the application can inject
-   * code into it that will be executed right after the Medium
-   * Frequency Task of Motor 1.
-   */
-
+  SPDPOT_Run( & SpeedPotentiometer_M1 );
 /* USER SECTION BEGIN PostMediumFrequencyHookM1 */
 
 /* USER SECTION END PostMediumFrequencyHookM1 */

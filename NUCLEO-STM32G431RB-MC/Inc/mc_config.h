@@ -35,6 +35,8 @@
 
 #include "r3_2_g4xx_pwm_curr_fdbk.h"
 
+#include "speed_potentiometer.h"
+
 #include "ramp_ext_mngr.h"
 #include "circle_limitation.h"
 
@@ -63,6 +65,7 @@ extern RDivider_Handle_t BusVoltageSensor_M1;
 extern CircleLimitation_Handle_t CircleLimitationM1;
 extern RampExtMngr_Handle_t RampExtMngrHFParamsM1;
 
+extern SpeedPotentiometer_Handle_t SpeedPotentiometer_M1;
 extern MCI_Handle_t Mci[NBR_OF_MOTORS];
 extern SpeednTorqCtrl_Handle_t *pSTC[NBR_OF_MOTORS];
 extern PID_Handle_t *pPIDIq[NBR_OF_MOTORS];

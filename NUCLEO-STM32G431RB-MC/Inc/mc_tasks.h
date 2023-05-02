@@ -51,6 +51,8 @@ void TSK_SafetyTask(void);
 /* Executes the Motor Control duties that require a high frequency rate and a precise timing */
 uint8_t TSK_HighFrequencyTask(void);
 
+void UI_HandleStartStopButton_cb (void);
+
 /* Reserves FOC execution on ADC ISR half a PWM period in advance */
 void TSK_DualDriveFIFOUpdate(uint8_t Motor);
 

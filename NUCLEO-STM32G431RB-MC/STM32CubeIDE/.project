@@ -41,16 +41,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Src/aspep.c</locationURI>
 		</link>
 		<link>
-			<name>Application/User/demo.c</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/demo/demo.c</locationURI>
-		</link>
-		<link>
-			<name>Application/User/demo.h</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/demo/demo.h</locationURI>
-		</link>
-		<link>
 			<name>Application/User/main.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Src/main.c</locationURI>
@@ -191,11 +181,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/STM32G4xx_HAL_Driver/stm32g4xx_hal_fdcan.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c</locationURI>
-		</link>
-		<link>
 			<name>Drivers/STM32G4xx_HAL_Driver/stm32g4xx_hal_flash.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c</locationURI>
@@ -301,6 +286,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Src/pid_regulator.c</locationURI>
 		</link>
 		<link>
+			<name>Middlewares/MotorControl/potentiometer.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Src/potentiometer.c</locationURI>
+		</link>
+		<link>
 			<name>Middlewares/MotorControl/pqd_motor_power_measurement.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Src/pqd_motor_power_measurement.c</locationURI>
@@ -334,6 +324,11 @@
 			<name>Middlewares/MotorControl/speed_pos_fdbk.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Src/speed_pos_fdbk.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/MotorControl/speed_potentiometer.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/MCSDK_v6.1.1-Full/MotorControl/MCSDK/MCLib/Any/Src/speed_potentiometer.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/MotorControl/speed_torq_ctrl.c</name>

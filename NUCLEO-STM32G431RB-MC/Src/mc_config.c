@@ -347,6 +347,32 @@ CircleLimitation_Handle_t CircleLimitationM1 =
   .MaxVd          	  = (uint16_t)(MAX_MODULE * 950 / 1000),
 };
 
+/** @brief */
+uint16_t SpeedPotentiometer_ValuesBuffer_M1[ 1 << POTENTIOMETER_LPF_BANDWIDTH_POW2_M1 ];
+
+/*
+ * Speed Potentiometer instance for motor 1
+ */
+SpeedPotentiometer_Handle_t SpeedPotentiometer_M1 =
+{
+  .Pot = {
+    .PotRegConv = {
+      .regADC = ADC1,
+      .channel = MC_ADC_CHANNEL_12,
+      .samplingTime = POTENTIOMETER_ADC_SAMPLING_TIME_M1,
+    },
+
+    .LPFilterBandwidthPOW2 = POTENTIOMETER_LPF_BANDWIDTH_POW2_M1,
+    .PotMeasArray = (uint16_t *) SpeedPotentiometer_ValuesBuffer_M1
+  },
+
+  .pMCI = & Mci[0],
+  .RampSlope = (uint32_t)(POTENTIOMETER_RAMP_SLOPE_M1),
+  .ConversionFactor = (uint16_t)((65536.0)/((POTENTIOMETER_MAX_SPEED_M1)-(POTENTIOMETER_MIN_SPEED_M1))),
+  .SpeedAdjustmentRange = (uint16_t)(POTENTIOMETER_SPEED_ADJUSTMENT_RANGE_M1),
+  .MinimumSpeed = (uint16_t)(POTENTIOMETER_MIN_SPEED_M1),
+};
+
 MCI_Handle_t Mci[NBR_OF_MOTORS];
 SpeednTorqCtrl_Handle_t *pSTC[NBR_OF_MOTORS] = { &SpeednTorqCtrlM1 };
 NTC_Handle_t *pTemperatureSensor[NBR_OF_MOTORS] = {&TempSensor_M1};

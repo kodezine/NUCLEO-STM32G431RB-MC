@@ -60,6 +60,9 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Start_Stop_Pin GPIO_PIN_13
+#define Start_Stop_GPIO_Port GPIOC
+#define Start_Stop_EXTI_IRQn EXTI15_10_IRQn
 #define M1_CURR_AMPL_W_Pin GPIO_PIN_0
 #define M1_CURR_AMPL_W_GPIO_Port GPIOC
 #define M1_CURR_AMPL_V_Pin GPIO_PIN_1
@@ -74,8 +77,8 @@ void Error_Handler(void);
 #define UART_TX_GPIO_Port GPIOA
 #define UART_RX_Pin GPIO_PIN_3
 #define UART_RX_GPIO_Port GPIOA
-#define LD2_Pin GPIO_PIN_5
-#define LD2_GPIO_Port GPIOA
+#define M1_POTENTIOMETER_Pin GPIO_PIN_1
+#define M1_POTENTIOMETER_GPIO_Port GPIOB
 #define M1_PWM_UH_Pin GPIO_PIN_8
 #define M1_PWM_UH_GPIO_Port GPIOA
 #define M1_PWM_VH_Pin GPIO_PIN_9
