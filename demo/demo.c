@@ -72,10 +72,38 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 			{
 				break;
 			}
-			memcpy(&setRPM.bytes[0], &RxData[0], sizeof(t_rpm_i16CAN));
+			memcpy(setRPM.bytes, RxData, sizeof(t_rpm_i16CAN));
 		}while (false);
 	}
 }
+
+static void sendDriveState(MCI_State_t driveState)
+{
+	static FDCAN_TxHeaderTypeDef tx_hdr;
+	if (HAL_FDCAN_GetTxFifoFreeLevel(&hfdcan1) > 0) {
+		/*
+		 * RTR flag is part of identifier value
+		 * hence it needs to be properly decoded
+		 */
+		tx_hdr.Identifier = 0x111;
+		tx_hdr.TxFrameType = FDCAN_DATA_FRAME;
+		tx_hdr.IdType = FDCAN_STANDARD_ID;
+		tx_hdr.FDFormat = FDCAN_CLASSIC_CAN;
+		tx_hdr.BitRateSwitch = FDCAN_BRS_OFF;
+		tx_hdr.MessageMarker = 0;
+		tx_hdr.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+		tx_hdr.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
+		tx_hdr.DataLength = FDCAN_DLC_BYTES_1;
+		memcpy(TxData, &driveState, sizeof(MCI_State_t));
+
+		/* Now add message to FIFO. Should not fail */
+		if(HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &tx_hdr, TxData) != HAL_OK)
+		{
+			Error_Handler();
+		}
+	}
+}
+
 __NO_RETURN void app_main(void)
 {
 	/* FDCan control logic for CANOpen compatiblity : No hardware filters, software filters only */
@@ -103,6 +131,7 @@ __NO_RETURN void app_main(void)
 		rpm setRPM_i16Drive = SAFE_RPM;
 		bool maxRPM_OK = false;
 		bool minRPM_OK = false;
+		MCI_State_t driveState = MC_GetSTMStateMotor1();
 		if(setRPM.rpm_i16CAN < 15000 && setRPM.rpm_i16CAN > -15000)
 		{
 			maxRPM_OK = true;
@@ -118,9 +147,10 @@ __NO_RETURN void app_main(void)
 		/**
 		 * Write a code to drive the motor with drive speed in integer
 		 */
+		sendDriveState(driveState);
 		if(setRPM_i16Drive != SAFE_RPM)
 		{
-			if(IDLE == MC_GetSTMStateMotor1())
+			if(IDLE == driveState)
 			{
 				//MC_StartMotor1();
 			}
