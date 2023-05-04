@@ -97,7 +97,6 @@ __NO_RETURN void app_main(void)
     	Error_Handler();
     }
 
-	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 	HAL_TIM_Base_Start_IT(&htim6);
 	do
     {
@@ -119,17 +118,21 @@ __NO_RETURN void app_main(void)
 		/**
 		 * Write a code to drive the motor with drive speed in integer
 		 */
-#if 0
 		if(setRPM_i16Drive != SAFE_RPM)
 		{
-			MC_ProgramSpeedRampMotor1((int16_t)setRPM_i16Drive, 0);
-			MC_StartMotor1();
+			if(IDLE == MC_GetSTMStateMotor1())
+			{
+				//MC_StartMotor1();
+			}
+			HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+			//MC_ProgramSpeedRampMotor1((int16_t)setRPM_i16Drive, 0);
+			//MC_StartMotor1();
 		}
 		else
 		{
-			MC_StopMotor1();
+			HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+			//MC_StopMotor1();
 		}
-#endif
-        HAL_Delay(10);                              /* busy wait delay */
+        HAL_Delay(100);                              /* busy wait delay */
     } while (true);
 }
