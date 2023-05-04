@@ -53,7 +53,7 @@ extern __NO_RETURN void __PROGRAM_START(void);
   Internal References
  *---------------------------------------------------------------------------*/
 __NO_RETURN void Reset_Handler(void);
-__NO_RETURN void Default_Handler(void);
+void Default_Handler(void);
 
 /* ToDo: Add Cortex exception handler according the used Cortex-Core */
 /*---------------------------------------------------------------------------
@@ -188,6 +188,7 @@ void FMAC_IRQHandler                    (void) __attribute__((weak, alias("Defau
 extern const VECTOR_TABLE_Type __VECTOR_TABLE[256];
 const VECTOR_TABLE_Type __VECTOR_TABLE[256] __VECTOR_TABLE_ATTRIBUTE = {
     (VECTOR_TABLE_Type)(&__INITIAL_SP),                         /*     Initial Stack Pointer */
+    (VECTOR_TABLE_Type)&Reset_Handler                                                          ,
     (VECTOR_TABLE_Type)&NMI_Handler                                                          ,
     (VECTOR_TABLE_Type)&HardFault_Handler                                                    ,
     (VECTOR_TABLE_Type)&MemManage_Handler                                                    ,

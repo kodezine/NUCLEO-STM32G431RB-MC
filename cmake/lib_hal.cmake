@@ -176,13 +176,69 @@ set(${PROJECT_NAME}_PUBLIC_HEADERS
     ${hal_core_INCLUDES_DIR}/stm32g4xx_it.h
     ${hal_core_INCLUDES_DIR}/tim.h
     ${hal_core_INCLUDES_DIR}/usart.h
+
+    ${mcsdk_Any_INCLUDE_DIR}/bemf_speed_pos_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/bus_voltage_sensor.h
+    ${mcsdk_Any_INCLUDE_DIR}/circle_limitation.h
+    ${mcsdk_Any_INCLUDE_DIR}/current_ref_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/digital_output.h
+    ${mcsdk_Any_INCLUDE_DIR}/encoder_speed_pos_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/enc_align_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/esc.h
+    ${mcsdk_Any_INCLUDE_DIR}/feed_forward_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/flux_weakening_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/gap_gate_driver_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/ics_dd_pwmncurrfdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/inrush_current_limiter.h
+    ${mcsdk_Any_INCLUDE_DIR}/max_torque_per_ampere.h
+    ${mcsdk_Any_INCLUDE_DIR}/mcp.h
+    ${mcsdk_Any_INCLUDE_DIR}/mcpa.h
+    ${mcsdk_Any_INCLUDE_DIR}/mcptl.h
+    ${mcsdk_Any_INCLUDE_DIR}/mc_type.h
+    ${mcsdk_Any_INCLUDE_DIR}/mp_hall_tuning.h
+    ${mcsdk_Any_INCLUDE_DIR}/mp_one_touch_tuning.h
+    ${mcsdk_Any_INCLUDE_DIR}/mp_self_com_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/ntc_temperature_sensor.h
+    ${mcsdk_Any_INCLUDE_DIR}/open_loop.h
+    ${mcsdk_Any_INCLUDE_DIR}/pid_regulator.h
+    ${mcsdk_Any_INCLUDE_DIR}/potentiometer.h
+    ${mcsdk_Any_INCLUDE_DIR}/pqd_motor_power_measurement.h
+    ${mcsdk_Any_INCLUDE_DIR}/pwmc_3pwm.h
+    ${mcsdk_Any_INCLUDE_DIR}/pwmc_6pwm.h
+    ${mcsdk_Any_INCLUDE_DIR}/pwm_common.h
+    ${mcsdk_Any_INCLUDE_DIR}/pwm_common_sixstep.h
+    ${mcsdk_Any_INCLUDE_DIR}/pwm_curr_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/r1_dd_pwm_curr_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/ramp_ext_mngr.h
+    ${mcsdk_Any_INCLUDE_DIR}/revup_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/revup_ctrl_sixstep.h
+    ${mcsdk_Any_INCLUDE_DIR}/r_divider_bus_voltage_sensor.h
+    ${mcsdk_Any_INCLUDE_DIR}/speed_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/speed_pos_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/speed_potentiometer.h
+    ${mcsdk_Any_INCLUDE_DIR}/speed_regulator_potentiometer.h
+    ${mcsdk_Any_INCLUDE_DIR}/speed_torq_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/sto_cordic_speed_pos_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/sto_pll_speed_pos_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/sto_speed_pos_fdbk.h
+    ${mcsdk_Any_INCLUDE_DIR}/trajectory_ctrl.h
+    ${mcsdk_Any_INCLUDE_DIR}/usart_aspep_driver.h
+    ${mcsdk_Any_INCLUDE_DIR}/virtual_bus_voltage_sensor.h
+    ${mcsdk_Any_INCLUDE_DIR}/virtual_speed_sensor.h
+
+    ${mcsdk_G4xx_INCLUDE_DIR}/g4xx_bemf_ADC_fdbk.h
+    ${mcsdk_G4xx_INCLUDE_DIR}/ics_g4xx_pwm_curr_fdbk.h
+    ${mcsdk_G4xx_INCLUDE_DIR}/r1_g4xx_pwm_curr_fdbk.h
+    ${mcsdk_G4xx_INCLUDE_DIR}/r3_2_g4xx_pwm_curr_fdbk.h
+    ${mcsdk_G4xx_INCLUDE_DIR}/r3_3_g4xx_pwm_curr_fdbk.h
+    ${mcsdk_G4xx_INCLUDE_DIR}/stspin32g4.h
 )
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
         C_STANDARD          11
         C_STANDARD_REQUIRED ON
-        C_EXTENSIONS        OFF
+        C_EXTENSIONS        ON
         PUBLIC_HEADER       "${${PROJECT_NAME}_PUBLIC_HEADERS}"
         EXPORT_NAME         framework
 )
@@ -196,7 +252,6 @@ write_basic_package_version_file(${PROJECT_NAME}ConfigVersion.cmake
 # setTargetCompileOptions(PROJECT_NAME)
 target_compile_options(${PROJECT_NAME}
     PUBLIC
-    -std=gnu11
     -g3
     -Ofast
     -ffunction-sections
