@@ -35,7 +35,7 @@ cmake_minimum_required(VERSION 3.25)
     endif()
 
     # Always set the linker script path and file separately
-    set(${PROJECT_NAME}_LINKER_PATH "/Users/sohal/GitHub/NUCLEO-STM32G431RB-MC//NUCLEO-STM32G431RB-MC/STM32CubeIDE" CACHE STRING "Path to armgcc linker script")
+    set(${PROJECT_NAME}_LINKER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../NUCLEO-STM32G431RB-MC/STM32CubeIDE" CACHE STRING "Path to armgcc linker script")
     set(${PROJECT_NAME}_LINKER_SCRIPT "STM32G431RBTX_FLASH.ld" CACHE STRING "armgcc based linker script for ${PROJECT_NAME}")
     set(${PROJECT_NAME}_SCATTER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/__linker" CACHE STRING "Path to ARMClang linker script")
     set(${PROJECT_NAME}_SCATTER_FILE "ac6_arm.sct" CACHE STRING "ARMClang based linker script for ${PROJECT_NAME}")

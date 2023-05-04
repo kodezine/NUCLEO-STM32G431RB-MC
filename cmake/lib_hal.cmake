@@ -192,7 +192,22 @@ write_basic_package_version_file(${PROJECT_NAME}ConfigVersion.cmake
     COMPATIBILITY SameMajorVersion
 )
 
-setTargetCompileOptions(PROJECT_NAME)
+# We need special target options for speed and other flags for THIS HAL
+# setTargetCompileOptions(PROJECT_NAME)
+target_compile_options(${PROJECT_NAME}
+    PUBLIC
+    -std=gnu11
+    -g3
+    -Ofast
+    -ffunction-sections
+    -fdata-sections
+    -Wall
+    -fstack-usage
+    -MMD
+    -MP
+    -MF
+    --specs=nano.specs
+)
 
 # CPACK begins here
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
