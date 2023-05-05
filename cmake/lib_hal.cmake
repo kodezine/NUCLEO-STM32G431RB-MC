@@ -35,6 +35,7 @@ set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/register_interface.c
     ${hal_core_SOURCE_DIR}/regular_conversion_manager.c
     ${hal_core_SOURCE_DIR}/stm32g4xx_hal_msp.c
+    ${hal_core_SOURCE_DIR}/stm32g4xx_mc_it.c
     ${hal_core_SOURCE_DIR}/system_stm32g4xx.c
     ${hal_core_SOURCE_DIR}/usart_aspep_driver.c
 )
