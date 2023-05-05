@@ -18,7 +18,6 @@ cmake_minimum_required(VERSION 3.25)
         PRIVATE
             ${CMAKE_CURRENT_SOURCE_DIR}/demo.c
             ${hal_core_SOURCE_DIR}/stm32g4xx_it.c
-            ${hal_core_SOURCE_DIR}/stm32g4xx_mc_it.c
         # Expose the startup file
         PUBLIC
             ${${PROJECT_NAME}_STARTUP_FILE}
