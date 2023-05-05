@@ -56,6 +56,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void Error_Handler(void);
 void MX_TIM6_Init(void);
 void MX_FDCAN1_Init(void);
+void MX_TIM7_Init(void);
 
 /* USER CODE BEGIN EFP */
 
