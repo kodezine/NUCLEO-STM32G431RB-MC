@@ -67,8 +67,6 @@ static void MX_ADC2_Init(void);
 static void MX_CORDIC_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART2_UART_Init(void);
-static void MX_TIM6_Init(void);
-static void MX_FDCAN1_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -429,7 +427,7 @@ static void MX_CORDIC_Init(void)
   * @param None
   * @retval None
   */
-static void MX_FDCAN1_Init(void)
+void MX_FDCAN1_Init(void)
 {
 
   /* USER CODE BEGIN FDCAN1_Init 0 */
@@ -577,7 +575,7 @@ static void MX_TIM1_Init(void)
   * @param None
   * @retval None
   */
-static void MX_TIM6_Init(void)
+void MX_TIM6_Init(void)
 {
 
   /* USER CODE BEGIN TIM6_Init 0 */
